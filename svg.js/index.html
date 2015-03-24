@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div id="drawing"></div>
+<script type="text/javascript" src="svg.min.js"></script>
+<script type="text/javascript">
+	var draw = SVG('drawing').viewbox(0,0,900,900)
+	var orangeRect = draw.image('rectorange.svg', 297,100).move(0,0)
+	var blueRect = draw.image('rectblue.svg', 297,100).move(500,0)
+
+	var swapRight = function() {
+		orangeRect.animate(1000,'<>',100)
+		.move (500,0)
+		.after(function() {
+			orangeRect.animate(1000,'<>',500)
+			.move(0,0)
+		})
+	}
+	var swapLeft = function() {
+		blueRect.animate(1000,'<>',100)
+		.move (0,0)
+		.after(function() {
+			blueRect.animate(1000,'<>',500)
+			.move(500,0)
+		})
+	}
+	
+	orangeRect.on('click', swapRight)
+	orangeRect.on('click', swapLeft)
+</script>
+</body>
+</html>
