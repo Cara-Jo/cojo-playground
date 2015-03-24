@@ -27,9 +27,11 @@
 			.move(500,0)
 		})
 	}
-	
-	orangeRect.on('click', swapRight)
-	orangeRect.on('click', swapLeft)
+	var swap = function () {
+		swapRight();
+		swapLeft();
+	}
+	SVG.on(window, 'click', swap)
 </script>
 </body>
 </html>
